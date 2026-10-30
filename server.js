@@ -1,14 +1,23 @@
 require("dotenv").config();
+
 const mongoose = require("mongoose");
 const express = require("express");
 const cors = require("cors");
 const path = require("path");
+
+const categoryRoutes = require("./routes/categoryRoutes");
+const recipeRoutes = require("./routes/recipeRoutes");
+const commentRoutes = require("./routes/commentRoutes");
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
+
+app.use("/api/categories", categoryRoutes);
+app.use("/api/recipes", recipeRoutes);
+app.use("/api/comments", commentRoutes);
 
 app.get("/api", (req, res) => {
   res.json({ message: "Online Recipe Book API is running!" });
