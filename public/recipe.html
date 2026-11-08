@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#101B2D" />
     <title>RecipeNest | Recipe Details</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/shared.css" />
+    <link rel="stylesheet" href="css/recipe.css" />
   </head>
-
   <body class="rn-recipe" data-page="recipe">
     <header class="site-header">
       <div class="nav-shell">
@@ -24,7 +24,6 @@
         </nav>
 
         <form
-          id="siteSearchForm"
           class="header-search"
           action="categories.html"
           method="get"
@@ -37,7 +36,7 @@
             placeholder="Search recipes..."
             aria-label="Search recipes"
           />
-          <button type="submit" id="searchButton">Search</button>
+          <button type="submit">Search</button>
         </form>
       </div>
     </header>
@@ -58,35 +57,39 @@
       <article id="recipeDetail" hidden>
         <div class="detail-intro">
           <div class="detail-heading">
-            <span id="recipeCategoryBadge" class="category-pill"> Recipe </span>
-
-            <h1 id="recipeTitle">Recipe Title</h1>
-
-            <p id="recipeDescription">
-              Discover the delicious flavors of this recipe.
-            </p>
+            <span id="recipeCategoryBadge" class="category-pill">Recipe</span>
+            <h1 id="recipeTitle"></h1>
+            <p id="recipeDescription"></p>
           </div>
 
-          <a href="categories.html" class="detail-back">
-            <span aria-hidden="true">←</span>
-            Back to Recipes
-          </a>
+          <div class="detail-actions">
+            <a href="categories.html#recipes" class="detail-back">
+              ← Back to Recipes
+            </a>
+
+            <a href="#" id="editRecipeButton" class="recipe-edit-button">
+              Edit Recipe
+            </a>
+
+            <button
+              type="button"
+              id="deleteRecipeButton"
+              class="recipe-delete-button"
+            >
+              Delete Recipe
+            </button>
+          </div>
         </div>
 
         <div class="photo-pair">
           <div class="main-photo">
-            <img
-              id="recipePrimaryPhoto"
-              src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=1200&q=85"
-              alt="Main recipe photograph"
-            />
+            <img id="recipePrimaryPhoto" alt="Recipe photograph" />
           </div>
-
           <div class="side-photo">
             <img
               id="recipeSecondaryPhoto"
-              src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=900&q=85"
-              alt="Additional recipe photograph"
+              src="food2.png"
+              alt="Food preparation"
             />
           </div>
         </div>
@@ -97,19 +100,16 @@
             <span class="stat-label">SERVINGS</span>
             <strong id="recipeServings">—</strong>
           </div>
-
           <div class="stat-item">
             <span class="stat-icon">02</span>
+            <span class="stat-label">PREPARATION TIME</span>
+            <strong id="recipePrepTime">—</strong>
+          </div>
+          <div class="stat-item">
+            <span class="stat-icon">03</span>
             <span class="stat-label">COOKING TIME</span>
             <strong id="recipeTime">—</strong>
           </div>
-
-          <div class="stat-item">
-            <span class="stat-icon">03</span>
-            <span class="stat-label">DIFFICULTY</span>
-            <strong id="recipeDifficulty">—</strong>
-          </div>
-
           <div class="stat-item">
             <span class="stat-icon">04</span>
             <span class="stat-label">CATEGORY</span>
@@ -120,62 +120,17 @@
         <div class="detail-layout">
           <div class="detail-main">
             <section class="recipe-story">
-              <span class="rn-section-tag"> ABOUT THIS DISH </span>
-
+              <span class="rn-section-tag">ABOUT THIS DISH</span>
               <h2>A Little About This Recipe</h2>
-
-              <p id="recipeAboutText">
-                Learn more about the flavors and preparation of this dish.
-              </p>
-            </section>
-
-            <section class="scaling-panel">
-              <div class="scaling-heading">
-                <span class="rn-section-tag"> CUSTOMIZE YOUR RECIPE </span>
-
-                <h2>Ingredient Scaling</h2>
-
-                <p id="scalingHelp">
-                  Adjust ingredient quantities based on the amount you want to
-                  prepare.
-                </p>
-              </div>
-
-              <div
-                class="scale-controls"
-                role="group"
-                aria-label="Ingredient scaling"
-              >
-                <button type="button" data-scale="0.5" aria-pressed="false">
-                  ½×
-                </button>
-
-                <button
-                  type="button"
-                  data-scale="1"
-                  class="is-active"
-                  aria-pressed="true"
-                >
-                  1×
-                </button>
-
-                <button type="button" data-scale="2" aria-pressed="false">
-                  2×
-                </button>
-              </div>
+              <p id="recipeAboutText"></p>
             </section>
 
             <section class="steps-card">
               <div class="section-card-heading">
-                <div>
-                  <span class="rn-section-tag"> STEP BY STEP </span>
-
-                  <h2>Cooking Instructions</h2>
-
-                  <p>Follow these steps to prepare your dish.</p>
-                </div>
+                <span class="rn-section-tag">STEP BY STEP</span>
+                <h2>Cooking Instructions</h2>
+                <p>Follow these steps to prepare your dish.</p>
               </div>
-
               <ol id="stepsList" class="steps-list"></ol>
             </section>
           </div>
@@ -183,15 +138,9 @@
           <aside class="recipe-sidebar">
             <section class="ingredients-card">
               <div class="section-card-heading">
-                <div>
-                  <span class="rn-section-tag"> WHAT YOU NEED </span>
-
-                  <h2>Ingredients</h2>
-
-                  <p id="ingredientCount" class="ingredient-subtitle">
-                    Your shopping list
-                  </p>
-                </div>
+                <span class="rn-section-tag">WHAT YOU NEED</span>
+                <h2>Ingredients</h2>
+                <p id="ingredientCount">Your shopping list</p>
               </div>
 
               <ul id="ingredientsList" class="ingredient-list"></ul>
@@ -202,34 +151,125 @@
             </section>
 
             <div class="recipe-tip">
-              <span class="rn-section-tag"> COOKING MADE SIMPLE </span>
-
+              <span class="rn-section-tag">COOKING MADE SIMPLE</span>
               <h3>Ready to get cooking?</h3>
-
               <p>
                 Prepare all your ingredients before starting. Follow each
                 instruction carefully and enjoy the process.
               </p>
-
-              <a href="categories.html#recipes"> Explore More Recipes → </a>
+              <a href="categories.html#recipes">Explore More Recipes →</a>
             </div>
           </aside>
         </div>
+
+        <section class="comments-section">
+          <div class="comments-heading">
+            <span class="rn-section-tag">COMMUNITY DISCUSSION</span>
+            <h2>Comments & Feedback</h2>
+            <p>Share your experience or leave a comment about this recipe.</p>
+          </div>
+
+          <div class="comments-layout">
+            <div class="comments-list-card">
+              <div class="comments-list-heading">
+                <h3>Recipe Comments</h3>
+                <span id="commentCount">0 comments</span>
+              </div>
+
+              <div id="commentsContainer" aria-live="polite">
+                <p class="muted">Loading comments...</p>
+              </div>
+            </div>
+
+            <div class="comment-form-card">
+              <h3>Leave a Comment</h3>
+              <p>We'd love to hear what you think!</p>
+
+              <form id="commentForm">
+                <div class="form-field">
+                  <label for="commentName">Your Name</label>
+                  <input
+                    type="text"
+                    id="commentName"
+                    placeholder="Enter your name"
+                    maxlength="100"
+                    required
+                  />
+                </div>
+
+                <div class="form-field">
+                  <label for="commentText">Your Comment</label>
+                  <textarea
+                    id="commentText"
+                    placeholder="Share your thoughts about this recipe..."
+                    rows="5"
+                    required
+                  ></textarea>
+                </div>
+
+                <button type="submit" id="commentSubmit" class="rn-btn-primary">
+                  Post Comment →
+                </button>
+
+                <p id="commentMessage" class="form-message" role="status"></p>
+              </form>
+            </div>
+          </div>
+        </section>
       </article>
+
+      <dialog
+        id="deleteRecipeDialog"
+        class="delete-recipe-dialog"
+        aria-labelledby="deleteDialogTitle"
+      >
+        <div class="delete-dialog-content">
+          <div class="delete-dialog-icon" aria-hidden="true">!</div>
+
+          <h2 id="deleteDialogTitle">Delete Recipe?</h2>
+
+          <p>
+            Are you sure you want to delete this recipe? This action cannot be
+            undone. All comments associated with this recipe will also be
+            deleted.
+          </p>
+
+          <p
+            id="deleteErrorMessage"
+            class="delete-error-message"
+            role="alert"
+          ></p>
+
+          <div class="delete-dialog-actions">
+            <button
+              type="button"
+              id="cancelDeleteButton"
+              class="delete-cancel-button"
+            >
+              Cancel
+            </button>
+
+            <button
+              type="button"
+              id="confirmDeleteButton"
+              class="delete-confirm-button"
+            >
+              Yes, Delete Recipe
+            </button>
+          </div>
+        </div>
+      </dialog>
 
       <section class="detail-continue">
         <div>
-          <span class="rn-section-tag"> DISCOVER MORE </span>
-
+          <span class="rn-section-tag">DISCOVER MORE</span>
           <h2>Looking for something else?</h2>
-
           <p>
             Explore more delicious dishes and discover your next favorite
             recipe.
           </p>
         </div>
-
-        <a href="categories.html" class="rn-btn-primary"> Browse Recipes → </a>
+        <a href="categories.html" class="rn-btn-primary">Browse Recipes →</a>
       </section>
     </main>
 
@@ -238,7 +278,6 @@
         <div class="rn-footer-top">
           <div class="rn-footer-info">
             <h3>Recipe<span>Nest</span></h3>
-
             <p>
               Discover delicious recipes, explore new flavors, and share your
               love for cooking.
@@ -247,7 +286,6 @@
 
           <div class="rn-footer-column">
             <h4>Explore</h4>
-
             <a href="index.html">Home</a>
             <a href="categories.html">Categories</a>
             <a href="categories.html#recipes">Recipes</a>
@@ -256,28 +294,23 @@
 
           <div class="rn-footer-column">
             <h4>Project</h4>
-
             <a href="index.html#about">About Us</a>
-
             <a
               href="https://github.com/"
               target="_blank"
               rel="noopener noreferrer"
+              >GitHub Repository</a
             >
-              GitHub Repository
-            </a>
           </div>
         </div>
 
         <div class="rn-footer-bottom">
-          <span> © 2026 RecipeNest. All rights reserved. </span>
-
+          <span>© 2026 RecipeNest. All rights reserved.</span>
           <span>Made for food lovers.</span>
         </div>
       </div>
     </footer>
 
-    <script src="site.js"></script>
-    <script src="pages.js"></script>
+    <script src="js/recipe.js"></script>
   </body>
 </html>

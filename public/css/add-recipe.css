@@ -1,0 +1,572 @@
+.rn-add {
+  min-height: 100vh;
+  background: var(--rn-white);
+}
+
+.rn-add .add-page {
+  width: 100%;
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 35px 24px 90px;
+}
+
+.rn-add .add-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin-bottom: 38px;
+  color: #8994a4;
+  font-size: 12px;
+}
+
+.rn-add .add-breadcrumb a {
+  color: #526075;
+  font-weight: 600;
+}
+
+.rn-add .add-breadcrumb a:hover {
+  color: #668900;
+}
+
+.rn-add .add-breadcrumb span:last-child {
+  color: var(--rn-navy);
+  font-weight: 750;
+}
+
+.rn-add .add-heading {
+  max-width: 720px;
+  margin-bottom: 38px;
+}
+
+.rn-add .add-heading h1 {
+  margin: 12px 0 15px;
+  color: var(--rn-navy);
+  font-size: clamp(36px, 4vw, 50px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -1.5px;
+}
+
+.rn-add .add-heading h1 span {
+  color: #729600;
+}
+
+.rn-add .add-heading p {
+  max-width: 650px;
+  color: var(--rn-gray);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.rn-add .add-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(280px, 0.85fr);
+  align-items: start;
+  gap: 27px;
+}
+
+.rn-add .recipe-form {
+  display: flex;
+  flex-direction: column;
+  gap: 23px;
+  min-width: 0;
+}
+
+.rn-add .form-card {
+  padding: 31px;
+  background: white;
+  border: 1px solid var(--rn-border);
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(16, 27, 45, 0.035);
+}
+
+.rn-add .form-card-heading {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 27px;
+  padding-bottom: 23px;
+  border-bottom: 1px solid var(--rn-border);
+}
+
+.rn-add .form-step {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 47px;
+  height: 47px;
+  flex-shrink: 0;
+  background: var(--rn-navy);
+  color: var(--rn-lime);
+  border-radius: 11px;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.rn-add .form-card-heading h2 {
+  color: var(--rn-navy);
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.rn-add .form-card-heading p {
+  margin-top: 4px;
+  color: var(--rn-gray);
+  font-size: 12px;
+}
+
+.rn-add .field-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 23px 20px;
+}
+
+.rn-add .field-grid.three-fields {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.rn-add .field {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  min-width: 0;
+  color: var(--rn-navy);
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.rn-add .field-wide {
+  grid-column: 1 / -1;
+}
+
+.rn-add .required {
+  color: #d14d4d;
+}
+
+.rn-add .field input,
+.rn-add .field select,
+.rn-add .field textarea,
+.rn-add .ingredient-input {
+  width: 100%;
+  min-width: 0;
+  padding: 12px 14px;
+  background: #fbfcfe;
+  color: var(--rn-navy);
+  border: 1px solid #dce3eb;
+  border-radius: 9px;
+  outline: none;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.6;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.rn-add .field input,
+.rn-add .field select,
+.rn-add .ingredient-input {
+  min-height: 46px;
+}
+
+.rn-add .field textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.rn-add #recipeInstructionsInput {
+  min-height: 210px;
+}
+
+.rn-add .field input:focus,
+.rn-add .field select:focus,
+.rn-add .field textarea:focus,
+.rn-add .ingredient-input:focus {
+  border-color: #a0cb24;
+  box-shadow: 0 0 0 3px rgba(200, 255, 50, 0.15);
+}
+
+.rn-add .field input::placeholder,
+.rn-add .field textarea::placeholder,
+.rn-add .ingredient-input::placeholder {
+  color: #9aa5b4;
+}
+
+.rn-add .image-preview-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.rn-add .preview-box {
+  position: relative;
+  width: 100%;
+  height: 230px;
+  overflow: hidden;
+  background: #edf1f5;
+  border: 1px solid var(--rn-border);
+  border-radius: 12px;
+}
+
+.rn-add .preview-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.rn-add .preview-box span {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  padding: 7px 11px;
+  background: rgba(16, 27, 45, 0.85);
+  color: white;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 750;
+}
+
+.rn-add .preview-note,
+.rn-add .helper-text {
+  color: #8994a4;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+.rn-add .preview-note {
+  margin-top: 13px;
+}
+
+.rn-add .label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.rn-add .text-link {
+  padding: 0;
+  background: transparent;
+  color: #658900;
+  border: none;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.rn-add .text-link:hover {
+  color: var(--rn-navy);
+}
+
+.rn-add .ingredient-input-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.rn-add .ingredient-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.rn-add .ingredient-row .ingredient-input {
+  flex: 1;
+}
+
+.rn-add .remove-ingredient {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 45px;
+  flex-shrink: 0;
+  background: #fff5f5;
+  color: #bc4c4c;
+  border: 1px solid #f3dcdc;
+  border-radius: 9px;
+  font-size: 22px;
+}
+
+.rn-add .remove-ingredient:hover {
+  background: #ffe5e5;
+}
+
+.rn-add .form-message {
+  color: #567800;
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1.7;
+}
+
+.rn-add .form-message:empty {
+  display: none;
+}
+
+.rn-add .form-message.error {
+  padding: 15px 18px;
+  background: #fff0f0;
+  color: #b43737;
+  border: 1px solid #f2d3d3;
+  border-radius: 9px;
+}
+
+.rn-add .form-message.success {
+  padding: 15px 18px;
+  background: #f0f8e3;
+  color: #567800;
+  border: 1px solid #d7e9bd;
+  border-radius: 9px;
+}
+
+.rn-add .form-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 13px;
+}
+
+.rn-add .form-actions .button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  min-height: 47px;
+  padding: 12px 22px;
+  border-radius: 9px;
+  font-size: 13px;
+  font-weight: 800;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.rn-add .button-outline {
+  background: white;
+  color: var(--rn-navy);
+  border: 1px solid var(--rn-border);
+}
+
+.rn-add .button-outline:hover {
+  background: #f1f4f7;
+}
+
+.rn-add .button-primary {
+  background: var(--rn-lime);
+  color: var(--rn-navy);
+  border: 1px solid var(--rn-lime);
+}
+
+.rn-add .button-primary:hover {
+  background: #b7e92b;
+  transform: translateY(-2px);
+}
+
+.rn-add .button-primary:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.rn-add .add-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 23px;
+  min-width: 0;
+}
+
+.rn-add .add-side-photo {
+  position: relative;
+  height: 325px;
+  overflow: hidden;
+  background: var(--rn-navy);
+  border-radius: 15px;
+}
+
+.rn-add .add-side-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.rn-add .side-photo-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 25px;
+  background: linear-gradient(
+    0deg,
+    rgba(16, 27, 45, 0.92),
+    rgba(16, 27, 45, 0.02) 85%
+  );
+}
+
+.rn-add .side-photo-overlay span {
+  margin-bottom: 9px;
+  color: var(--rn-lime);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+}
+
+.rn-add .side-photo-overlay h3 {
+  max-width: 250px;
+  color: white;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.rn-add .add-guide {
+  padding: 27px;
+  background: white;
+  border: 1px solid var(--rn-border);
+  border-radius: 15px;
+}
+
+.rn-add .add-guide h3 {
+  margin: 10px 0;
+  color: var(--rn-navy);
+  font-size: 21px;
+  font-weight: 800;
+}
+
+.rn-add .add-guide p {
+  margin-bottom: 17px;
+  color: var(--rn-gray);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.rn-add .add-guide ul {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  padding-left: 20px;
+  color: #526075;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.rn-add .add-guide li::marker {
+  color: #87b01b;
+}
+
+.rn-add .add-side-note {
+  padding: 27px;
+  background: var(--rn-navy);
+  border-radius: 15px;
+}
+
+.rn-add .add-side-note h3 {
+  margin-bottom: 12px;
+  color: white;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.rn-add .add-side-note p {
+  margin-bottom: 18px;
+  color: #bcc8d7;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.rn-add .add-side-note a {
+  color: var(--rn-lime);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.rn-add .add-side-note a:hover {
+  color: white;
+}
+
+@media (max-width: 1000px) {
+  .rn-add .add-layout {
+    grid-template-columns: minmax(0, 1fr) 290px;
+    gap: 20px;
+  }
+
+  .rn-add .form-card {
+    padding: 25px;
+  }
+}
+
+@media (max-width: 800px) {
+  .rn-add .add-page {
+    padding: 30px 20px 65px;
+  }
+
+  .rn-add .add-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .rn-add .add-sidebar {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .rn-add .add-side-note {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 600px) {
+  .rn-add .add-page {
+    padding: 25px 16px 55px;
+  }
+
+  .rn-add .add-heading h1 {
+    font-size: 36px;
+    letter-spacing: -1px;
+  }
+
+  .rn-add .add-heading p {
+    font-size: 14px;
+  }
+
+  .rn-add .form-card {
+    padding: 23px 19px;
+  }
+
+  .rn-add .form-card-heading {
+    gap: 12px;
+  }
+
+  .rn-add .form-card-heading h2 {
+    font-size: 19px;
+  }
+
+  .rn-add .field-grid,
+  .rn-add .field-grid.three-fields {
+    grid-template-columns: 1fr;
+    gap: 19px;
+  }
+
+  .rn-add .field-wide {
+    grid-column: auto;
+  }
+
+  .rn-add .preview-box {
+    height: 190px;
+  }
+
+  .rn-add .form-actions .button {
+    flex: 1;
+  }
+
+  .rn-add .add-sidebar {
+    grid-template-columns: 1fr;
+  }
+
+  .rn-add .add-side-note {
+    grid-column: auto;
+  }
+}
