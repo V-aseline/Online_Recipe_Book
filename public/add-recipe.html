@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#101B2D" />
+    <title>RecipeNest | Add Recipe</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body class="rn-add" data-page="add-recipe">
+    <header class="site-header">
+      <div class="nav-shell">
+        <a href="index.html" class="brand">
+          <span class="brand-icon">R</span>
+          <span>Recipe<strong>Nest</strong></span>
+        </a>
+
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="index.html">Home</a>
+          <a href="categories.html">Categories</a>
+          <a href="categories.html#recipes">Recipes</a>
+          <a href="add-recipe.html" class="active" aria-current="page"
+            >Add Recipe</a
+          >
+        </nav>
+
+        <form
+          id="siteSearchForm"
+          class="header-search"
+          action="categories.html"
+          method="get"
+          role="search"
+        >
+          <input
+            type="search"
+            id="searchInput"
+            name="q"
+            placeholder="Search recipes..."
+            aria-label="Search recipes"
+          />
+
+          <button id="searchButton" type="submit">Search</button>
+        </form>
+      </div>
+    </header>
+
+    <main class="add-page">
+      <nav class="add-breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <span>Add Recipe</span>
+      </nav>
+
+      <div class="add-heading">
+        <span class="rn-section-tag"> SHARE YOUR CREATION </span>
+
+        <h1>Share Your <span>Recipe.</span></h1>
+
+        <p>
+          Every great dish has a story. Share yours with the RecipeNest
+          community by filling out the recipe details below.
+        </p>
+      </div>
+
+      <div class="add-layout">
+        <form id="addRecipeForm" class="recipe-form">
+          <section class="form-card">
+            <div class="form-card-heading">
+              <span class="form-step">01</span>
+
+              <div>
+                <h2>Recipe Information</h2>
+                <p>Tell us about the dish you want to share.</p>
+              </div>
+            </div>
+
+            <div class="field-grid">
+              <label class="field field-wide">
+                <span>
+                  Recipe Name
+                  <span class="required">*</span>
+                </span>
+
+                <input
+                  type="text"
+                  id="recipeTitleInput"
+                  name="title"
+                  maxlength="120"
+                  placeholder="e.g. Classic Chicken Adobo"
+                  required
+                />
+              </label>
+
+              <label class="field">
+                <span>
+                  Recipe Category
+                  <span class="required">*</span>
+                </span>
+
+                <select id="recipeCategoryInput" name="category" required>
+                  <option value="">Loading categories...</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span>Difficulty Level</span>
+
+                <select id="recipeDifficultyInput" name="difficulty">
+                  <option value="">Not specified</option>
+                  <option value="Easy">Easy</option>
+                  <option value="Medium">Medium</option>
+                  <option value="Hard">Hard</option>
+                </select>
+              </label>
+
+              <label class="field field-wide">
+                <span>
+                  Recipe Description
+                  <span class="required">*</span>
+                </span>
+
+                <textarea
+                  id="recipeDescriptionInput"
+                  name="description"
+                  rows="5"
+                  placeholder="Describe your dish, its flavors, and what makes it special..."
+                  required
+                ></textarea>
+              </label>
+            </div>
+          </section>
+
+          <section class="form-card">
+            <div class="form-card-heading">
+              <span class="form-step">02</span>
+
+              <div>
+                <h2>Recipe Photos</h2>
+                <p>Add photographs to showcase your dish.</p>
+              </div>
+            </div>
+
+            <div class="field-grid">
+              <label class="field">
+                <span>Main Image URL</span>
+
+                <input
+                  type="url"
+                  id="recipeImageInput"
+                  name="imageUrl"
+                  placeholder="https://example.com/food.jpg"
+                />
+              </label>
+
+              <label class="field">
+                <span>Additional Image URL</span>
+
+                <input
+                  type="url"
+                  id="recipeImage2Input"
+                  name="imageUrl2"
+                  placeholder="https://example.com/food2.jpg"
+                />
+              </label>
+            </div>
+
+            <div class="image-preview-row">
+              <div class="preview-box">
+                <img
+                  id="primaryPreview"
+                  src="food1.png"
+                  alt="Main recipe photo preview"
+                />
+
+                <span>Main Photo</span>
+              </div>
+
+              <div class="preview-box">
+                <img
+                  id="secondaryPreview"
+                  src="food2.png"
+                  alt="Additional recipe photo preview"
+                />
+
+                <span>Additional Photo</span>
+              </div>
+            </div>
+
+            <p class="preview-note">
+              Enter a direct image URL to display a preview. Image file uploads
+              are not supported by this form.
+            </p>
+          </section>
+
+          <section class="form-card">
+            <div class="form-card-heading">
+              <span class="form-step">03</span>
+
+              <div>
+                <h2>Cooking Details</h2>
+                <p>Help others prepare your recipe correctly.</p>
+              </div>
+            </div>
+
+            <div class="field-grid three-fields">
+              <label class="field">
+                <span>Servings</span>
+
+                <input
+                  type="number"
+                  id="recipeServingsInput"
+                  name="servings"
+                  min="1"
+                  max="100"
+                  placeholder="e.g. 4"
+                />
+              </label>
+
+              <label class="field">
+                <span>Preparation Time</span>
+
+                <input
+                  type="number"
+                  id="recipePrepInput"
+                  name="prepTime"
+                  min="0"
+                  placeholder="Minutes"
+                />
+              </label>
+
+              <label class="field">
+                <span>Cooking Time</span>
+
+                <input
+                  type="number"
+                  id="recipeCookInput"
+                  name="cookTime"
+                  min="0"
+                  placeholder="Minutes"
+                />
+              </label>
+            </div>
+          </section>
+
+          <section class="form-card">
+            <div class="form-card-heading">
+              <span class="form-step">04</span>
+
+              <div>
+                <h2>Ingredients</h2>
+                <p>List everything needed to prepare your dish.</p>
+              </div>
+            </div>
+
+            <div class="field field-wide">
+              <div class="label-row">
+                <span>
+                  Ingredient List
+                  <span class="required">*</span>
+                </span>
+
+                <button
+                  id="addIngredientRow"
+                  class="text-link add-more"
+                  type="button"
+                >
+                  + Add Ingredient
+                </button>
+              </div>
+
+              <div id="ingredientInputRows" class="ingredient-input-rows">
+                <div class="ingredient-row">
+                  <input
+                    class="ingredient-input"
+                    type="text"
+                    placeholder="e.g. 1 kg chicken"
+                    aria-label="Ingredient 1"
+                    required
+                  />
+
+                  <button
+                    type="button"
+                    class="remove-ingredient"
+                    aria-label="Remove ingredient"
+                    title="Remove ingredient"
+                  >
+                    ×
+                  </button>
+                </div>
+
+                <div class="ingredient-row">
+                  <input
+                    class="ingredient-input"
+                    type="text"
+                    placeholder="e.g. 1/2 cup soy sauce"
+                    aria-label="Ingredient 2"
+                  />
+
+                  <button
+                    type="button"
+                    class="remove-ingredient"
+                    aria-label="Remove ingredient"
+                    title="Remove ingredient"
+                  >
+                    ×
+                  </button>
+                </div>
+              </div>
+
+              <span class="helper-text">
+                Include the quantity and unit for each ingredient.
+              </span>
+            </div>
+          </section>
+
+          <section class="form-card">
+            <div class="form-card-heading">
+              <span class="form-step">05</span>
+
+              <div>
+                <h2>Cooking Instructions</h2>
+                <p>Explain how to prepare the dish step by step.</p>
+              </div>
+            </div>
+
+            <label class="field field-wide">
+              <span>
+                Preparation Instructions
+                <span class="required">*</span>
+              </span>
+
+              <textarea
+                id="recipeInstructionsInput"
+                name="instructions"
+                rows="10"
+                placeholder="1. Prepare all the ingredients.&#10;2. Heat the cooking oil in a pan.&#10;3. Add the ingredients and cook.&#10;4. Serve and enjoy."
+                required
+              ></textarea>
+
+              <span class="helper-text">
+                Write each cooking step on a separate line.
+              </span>
+            </label>
+          </section>
+
+          <div
+            id="formMessage"
+            class="form-message"
+            role="status"
+            aria-live="polite"
+          ></div>
+
+          <div class="form-actions">
+            <a href="categories.html" class="button button-outline"> Cancel </a>
+
+            <button
+              id="submitRecipeButton"
+              type="submit"
+              class="button button-primary"
+            >
+              Submit recipe
+              <span aria-hidden="true">↗</span>
+            </button>
+          </div>
+        </form>
+
+        <aside class="add-sidebar">
+          <div class="add-side-photo">
+            <img src="kitchen.png" alt="P  reparing food in a kitchen" />
+
+            <div class="side-photo-overlay">
+              <span>RECIPENEST</span>
+              <h3>Every recipe has a story.</h3>
+            </div>
+          </div>
+
+          <div class="add-guide">
+            <span class="rn-section-tag"> RECIPE SUBMISSION GUIDE </span>
+
+            <h3>Before You Submit</h3>
+
+            <p>Make sure your recipe is clear and easy for others to follow.</p>
+
+            <ul>
+              <li>Use a clear and descriptive recipe name.</li>
+              <li>Choose the correct recipe category.</li>
+              <li>Include accurate ingredient quantities.</li>
+              <li>Write easy-to-follow cooking steps.</li>
+              <li>Add a photo of your finished dish.</li>
+            </ul>
+          </div>
+
+          <div class="add-side-note">
+            <h3>Share the joy of cooking.</h3>
+
+            <p>
+              Your recipes can inspire others to discover new flavors and
+              improve their cooking skills.
+            </p>
+
+            <a href="categories.html"> Explore Recipes → </a>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="rn-footer">
+      <div class="rn-footer-inner">
+        <div class="rn-footer-top">
+          <div class="rn-footer-info">
+            <h3>Recipe<span>Nest</span></h3>
+
+            <p>
+              Discover delicious recipes, explore new flavors, and share your
+              love for cooking.
+            </p>
+          </div>
+
+          <div class="rn-footer-column">
+            <h4>Explore</h4>
+
+            <a href="index.html">Home</a>
+            <a href="categories.html">Categories</a>
+            <a href="categories.html#recipes">Recipes</a>
+            <a href="add-recipe.html">Add Recipe</a>
+          </div>
+
+          <div class="rn-footer-column">
+            <h4>Project</h4>
+
+            <a href="index.html#about">About Us</a>
+
+            <a
+              href="https://github.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub Repository
+            </a>
+          </div>
+        </div>
+
+        <div class="rn-footer-bottom">
+          <span> © 2026 RecipeNest. All rights reserved. </span>
+
+          <span> Made for food lovers. </span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="site.js"></script>
+    <script src="pages.js"></script>
+  </body>
+</html>

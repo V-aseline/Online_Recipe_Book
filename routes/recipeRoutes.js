@@ -198,7 +198,7 @@ router.put("/:id", async (req, res) => {
         imageUrl,
       },
       {
-        new: true,
+        returnDocument: "after",
         runValidators: true,
       },
     ).populate("category", "name");

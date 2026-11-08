@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#101B2D" />
+    <title>RecipeNest | Categories</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body class="rn-categories" data-page="categories">
+    <header class="site-header">
+      <div class="nav-shell">
+        <a href="index.html" class="brand">
+          <span class="brand-icon">R</span>
+          <span>Recipe<strong>Nest</strong></span>
+        </a>
+
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="index.html">Home</a>
+          <a href="categories.html" class="active" aria-current="page"
+            >Categories</a
+          >
+          <a href="categories.html#recipes">Recipes</a>
+          <a href="add-recipe.html">Add Recipe</a>
+        </nav>
+
+        <form
+          id="siteSearchForm"
+          class="header-search"
+          action="categories.html"
+          method="get"
+          role="search"
+        >
+          <input
+            type="search"
+            id="searchInput"
+            name="q"
+            placeholder="Search recipes..."
+            aria-label="Search recipes"
+            autocomplete="off"
+          />
+          <button type="submit" id="searchButton" aria-label="Search recipes">
+            Search
+          </button>
+        </form>
+      </div>
+    </header>
+
+    <main class="listing-page">
+      <section class="listing-hero">
+        <div class="listing-hero-inner">
+          <div class="listing-hero-content">
+            <span class="rn-section-tag"> DISCOVER YOUR NEXT FAVORITE </span>
+
+            <h1>Explore Our <span>Recipes.</span></h1>
+
+            <p>
+              Discover delicious recipes for every occasion. From simple
+              everyday meals to something special, find the perfect dish to
+              prepare and enjoy.
+            </p>
+
+            <div class="explore-search">
+              <span class="search-icon" aria-hidden="true">⌕</span>
+
+              <input
+                type="search"
+                id="pageSearchInput"
+                placeholder="Search by recipe name or ingredient..."
+                aria-label="Search by recipe name or ingredient"
+                autocomplete="off"
+              />
+
+              <button id="clearPageSearch" type="button">Clear</button>
+            </div>
+
+            <div class="category-filter-section">
+              <span class="filter-label"> POPULAR CATEGORIES </span>
+
+              <div
+                id="categoryChips"
+                class="filter-chips"
+                aria-label="Recipe categories"
+              >
+                <span class="muted">Loading categories...</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="listing-hero-image">
+            <img src="food1.png" alt="Colorful freshly prepared meal" />
+          </div>
+        </div>
+      </section>
+
+      <section id="recipes" class="catalog-layout">
+        <aside class="filter-sidebar">
+          <div class="sidebar-title">
+            <h2>Filters</h2>
+
+            <button id="resetFilters" class="plain-button" type="button">
+              Reset All
+            </button>
+          </div>
+
+          <div class="filter-group">
+            <h3>Category</h3>
+
+            <div id="sidebarCategories" class="radio-stack">
+              <p class="muted">Loading categories...</p>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <h3>Difficulty Level</h3>
+
+            <label class="radio-line">
+              <input type="radio" name="difficultyFilter" value="all" checked />
+              <span>Any level</span>
+            </label>
+
+            <label class="radio-line">
+              <input type="radio" name="difficultyFilter" value="easy" />
+              <span>Easy</span>
+            </label>
+
+            <label class="radio-line">
+              <input type="radio" name="difficultyFilter" value="medium" />
+              <span>Medium</span>
+            </label>
+
+            <label class="radio-line">
+              <input type="radio" name="difficultyFilter" value="hard" />
+              <span>Hard</span>
+            </label>
+          </div>
+
+          <p class="filter-footnote">
+            Cooking time and difficulty filters apply when recipe information is
+            available.
+          </p>
+        </aside>
+
+        <div class="catalog-content">
+          <div class="result-header">
+            <div>
+              <span class="rn-section-tag"> THE RECIPE COLLECTION </span>
+
+              <h2>Find Something Delicious</h2>
+
+              <p>Browse our collection and discover something new to cook.</p>
+            </div>
+
+            <p id="resultCount" class="result-count" role="status">
+              Loading recipes...
+            </p>
+          </div>
+
+          <div id="recipeGrid" class="catalog-grid">
+            <p class="muted">Loading recipes...</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="rn-share">
+        <div class="rn-share-content">
+          <span class="rn-section-tag"> SHARE YOUR CREATION </span>
+
+          <h2>Have a recipe worth sharing?</h2>
+
+          <p>Share your favorite homemade dishes and inspire others to cook.</p>
+        </div>
+
+        <a href="add-recipe.html" class="rn-btn-primary"> Add Your Recipe → </a>
+      </section>
+    </main>
+
+    <footer class="rn-footer">
+      <div class="rn-footer-inner">
+        <div class="rn-footer-top">
+          <div class="rn-footer-info">
+            <h3>Recipe<span>Nest</span></h3>
+
+            <p>
+              Discover delicious recipes, explore new flavors, and share your
+              love for cooking.
+            </p>
+          </div>
+
+          <div class="rn-footer-column">
+            <h4>Explore</h4>
+
+            <a href="index.html">Home</a>
+            <a href="categories.html">Categories</a>
+            <a href="categories.html#recipes">Recipes</a>
+            <a href="add-recipe.html">Add Recipe</a>
+          </div>
+
+          <div class="rn-footer-column">
+            <h4>Project</h4>
+
+            <a href="index.html#about">About Us</a>
+
+            <a
+              href="https://github.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub Repository
+            </a>
+          </div>
+        </div>
+
+        <div class="rn-footer-bottom">
+          <span> © 2026 RecipeNest. All rights reserved. </span>
+
+          <span> Made for food lovers. </span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="site.js"></script>
+    <script src="pages.js"></script>
+  </body>
+</html>

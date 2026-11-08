@@ -2,10 +2,9 @@ const express = require("express");
 const mongoose = require("mongoose");
 const router = express.Router();
 
-const Comment = require("../models/Comment");
-const Recipe = require("../models/Recipe");
+const Comment = require("../models/comment");
+const Recipe = require("../models/recipe");
 
-// GET: View all comments for a specific recipe
 router.get("/recipe/:recipeId", async (req, res) => {
   try {
     const { recipeId } = req.params;
@@ -24,7 +23,6 @@ router.get("/recipe/:recipeId", async (req, res) => {
   }
 });
 
-// POST: Add a comment to a recipe
 router.post("/recipe/:recipeId", async (req, res) => {
   try {
     const { recipeId } = req.params;
@@ -58,7 +56,6 @@ router.post("/recipe/:recipeId", async (req, res) => {
   }
 });
 
-// DELETE: Remove a comment
 router.delete("/:id", async (req, res) => {
   try {
     const { id } = req.params;

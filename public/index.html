@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#101B2D" />
+    <meta
+      name="description"
+      content="Discover delicious recipes, explore food categories, and share your favorite homemade dishes with RecipeNest."
+    />
+    <title>RecipeNest | Home</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body class="rn-home">
+    <header class="site-header">
+      <div class="nav-shell">
+        <a href="index.html" class="brand" aria-label="RecipeNest Home">
+          <span class="brand-icon">R</span>
+          <span>Recipe<strong>Nest</strong></span>
+        </a>
+
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="index.html" class="active" aria-current="page">Home</a>
+          <a href="categories.html">Categories</a>
+          <a href="categories.html#recipes">Recipes</a>
+          <a href="add-recipe.html">Add Recipe</a>
+        </nav>
+
+        <form
+          id="siteSearchForm"
+          class="header-search"
+          action="categories.html"
+          method="get"
+          role="search"
+        >
+          <input
+            type="search"
+            id="searchInput"
+            name="q"
+            placeholder="Search recipes..."
+            aria-label="Search recipes"
+          />
+          <button type="submit" id="searchButton" aria-label="Search recipes">
+            Search
+          </button>
+        </form>
+      </div>
+    </header>
+
+    <main>
+      <section class="rn-hero">
+        <div class="rn-hero-image">
+          <img
+            src="food.png"
+            alt="A table filled with fresh and colorful food"
+          />
+
+          <div class="rn-hero-overlay">
+            <span class="rn-tag">WELCOME TO RECIPENEST</span>
+
+            <h1>
+              Good food starts<br />
+              with a great recipe.
+            </h1>
+
+            <p>
+              Discover new flavors, explore your favorites, and make every meal
+              worth sharing.
+            </p>
+          </div>
+        </div>
+
+        <div class="rn-about" id="about">
+          <div class="rn-about-main">
+            <div class="rn-about-text">
+              <span class="rn-section-tag">ABOUT THE PROJECT</span>
+
+              <h2>Welcome to RecipeNest</h2>
+
+              <p>
+                RecipeNest is an online recipe collection where food lovers can
+                discover delicious dishes, explore different categories, and
+                share their favorite homemade recipes.
+              </p>
+
+              <div class="rn-about-links">
+                <a href="categories.html">Explore Collection →</a>
+                <a href="add-recipe.html">Share a Recipe →</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="rn-about-meta">
+            <div class="rn-meta-item">
+              <span class="rn-meta-label">DEVELOPED BY</span>
+              <span class="rn-meta-value">Your Group / Developer Names</span>
+            </div>
+
+            <div class="rn-meta-item">
+              <span class="rn-meta-label">SOURCE CODE</span>
+              <a
+                href="https://github.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="rn-meta-link"
+              >
+                View GitHub Repository ↗
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="categories" class="rn-section rn-summary-section">
+        <div class="rn-section-heading">
+          <div>
+            <span class="rn-section-tag">EXPLORE</span>
+            <h2>Browse by Category</h2>
+            <p>Find something delicious for every occasion.</p>
+          </div>
+
+          <a href="categories.html" class="rn-view-link">
+            View All Categories →
+          </a>
+        </div>
+
+        <div class="rn-stat-grid">
+          <article class="rn-stat-card">
+            <div class="rn-stat-icon" aria-hidden="true">✦</div>
+            <div class="rn-stat-copy">
+              <span class="rn-stat-label">OUR COLLECTION</span>
+              <p class="rn-stat-number" id="categoryCount">—</p>
+              <p class="rn-stat-description">Available Categories</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="recipes" class="rn-section rn-summary-section">
+        <div class="rn-section-heading">
+          <div>
+            <span class="rn-section-tag">OUR COLLECTION</span>
+            <h2>Recipes to Try</h2>
+            <p>Explore delicious recipes from our collection.</p>
+          </div>
+
+          <a href="categories.html#recipes" class="rn-view-link">
+            View All Recipes →
+          </a>
+        </div>
+
+        <div class="rn-stat-grid">
+          <article class="rn-stat-card">
+            <div class="rn-stat-icon" aria-hidden="true">⌂</div>
+            <div class="rn-stat-copy">
+              <span class="rn-stat-label">MADE TO BE SHARED</span>
+              <p class="rn-stat-number" id="recipeCount">—</p>
+              <p class="rn-stat-description">Available Recipes</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="rn-share">
+        <div class="rn-share-content">
+          <span class="rn-section-tag">SHARE YOUR CREATION</span>
+
+          <h2>Have a recipe worth sharing?</h2>
+
+          <p>Share your favorite homemade dishes and inspire others to cook.</p>
+        </div>
+
+        <a href="add-recipe.html" class="rn-btn-primary"> Add Your Recipe → </a>
+      </section>
+    </main>
+
+    <footer class="rn-footer">
+      <div class="rn-footer-inner">
+        <div class="rn-footer-top">
+          <div class="rn-footer-info">
+            <h3>Recipe<span>Nest</span></h3>
+            <p>
+              Discover delicious recipes, explore new flavors, and share your
+              love for cooking.
+            </p>
+          </div>
+
+          <div class="rn-footer-column">
+            <h4>Explore</h4>
+            <a href="index.html">Home</a>
+            <a href="categories.html">Categories</a>
+            <a href="categories.html#recipes">Recipes</a>
+            <a href="add-recipe.html">Add Recipe</a>
+          </div>
+
+          <div class="rn-footer-column">
+            <h4>Project</h4>
+            <a href="index.html#about">About Us</a>
+            <a
+              href="https://github.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub Repository
+            </a>
+          </div>
+        </div>
+
+        <div class="rn-footer-bottom">
+          <span>© 2026 RecipeNest. All rights reserved.</span>
+          <span>Made for food lovers.</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="home.js"></script>
+  </body>
+</html>

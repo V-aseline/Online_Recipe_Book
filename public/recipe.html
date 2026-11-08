@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#101B2D" />
+    <title>RecipeNest | Recipe Details</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body class="rn-recipe" data-page="recipe">
+    <header class="site-header">
+      <div class="nav-shell">
+        <a href="index.html" class="brand">
+          <span class="brand-icon">R</span>
+          <span>Recipe<strong>Nest</strong></span>
+        </a>
+
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="index.html">Home</a>
+          <a href="categories.html">Categories</a>
+          <a href="categories.html#recipes" class="active">Recipes</a>
+          <a href="add-recipe.html">Add Recipe</a>
+        </nav>
+
+        <form
+          id="siteSearchForm"
+          class="header-search"
+          action="categories.html"
+          method="get"
+          role="search"
+        >
+          <input
+            type="search"
+            id="searchInput"
+            name="q"
+            placeholder="Search recipes..."
+            aria-label="Search recipes"
+          />
+          <button type="submit" id="searchButton">Search</button>
+        </form>
+      </div>
+    </header>
+
+    <main class="detail-page">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <a href="categories.html#recipes">Recipes</a>
+        <span>/</span>
+        <span id="breadcrumbRecipe">Recipe Details</span>
+      </nav>
+
+      <div id="recipeStatus" class="status-message" role="status">
+        Loading recipe details...
+      </div>
+
+      <article id="recipeDetail" hidden>
+        <div class="detail-intro">
+          <div class="detail-heading">
+            <span id="recipeCategoryBadge" class="category-pill"> Recipe </span>
+
+            <h1 id="recipeTitle">Recipe Title</h1>
+
+            <p id="recipeDescription">
+              Discover the delicious flavors of this recipe.
+            </p>
+          </div>
+
+          <a href="categories.html" class="detail-back">
+            <span aria-hidden="true">←</span>
+            Back to Recipes
+          </a>
+        </div>
+
+        <div class="photo-pair">
+          <div class="main-photo">
+            <img
+              id="recipePrimaryPhoto"
+              src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=1200&q=85"
+              alt="Main recipe photograph"
+            />
+          </div>
+
+          <div class="side-photo">
+            <img
+              id="recipeSecondaryPhoto"
+              src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=900&q=85"
+              alt="Additional recipe photograph"
+            />
+          </div>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-item">
+            <span class="stat-icon">01</span>
+            <span class="stat-label">SERVINGS</span>
+            <strong id="recipeServings">—</strong>
+          </div>
+
+          <div class="stat-item">
+            <span class="stat-icon">02</span>
+            <span class="stat-label">COOKING TIME</span>
+            <strong id="recipeTime">—</strong>
+          </div>
+
+          <div class="stat-item">
+            <span class="stat-icon">03</span>
+            <span class="stat-label">DIFFICULTY</span>
+            <strong id="recipeDifficulty">—</strong>
+          </div>
+
+          <div class="stat-item">
+            <span class="stat-icon">04</span>
+            <span class="stat-label">CATEGORY</span>
+            <strong id="recipeCategoryStat">—</strong>
+          </div>
+        </div>
+
+        <div class="detail-layout">
+          <div class="detail-main">
+            <section class="recipe-story">
+              <span class="rn-section-tag"> ABOUT THIS DISH </span>
+
+              <h2>A Little About This Recipe</h2>
+
+              <p id="recipeAboutText">
+                Learn more about the flavors and preparation of this dish.
+              </p>
+            </section>
+
+            <section class="scaling-panel">
+              <div class="scaling-heading">
+                <span class="rn-section-tag"> CUSTOMIZE YOUR RECIPE </span>
+
+                <h2>Ingredient Scaling</h2>
+
+                <p id="scalingHelp">
+                  Adjust ingredient quantities based on the amount you want to
+                  prepare.
+                </p>
+              </div>
+
+              <div
+                class="scale-controls"
+                role="group"
+                aria-label="Ingredient scaling"
+              >
+                <button type="button" data-scale="0.5" aria-pressed="false">
+                  ½×
+                </button>
+
+                <button
+                  type="button"
+                  data-scale="1"
+                  class="is-active"
+                  aria-pressed="true"
+                >
+                  1×
+                </button>
+
+                <button type="button" data-scale="2" aria-pressed="false">
+                  2×
+                </button>
+              </div>
+            </section>
+
+            <section class="steps-card">
+              <div class="section-card-heading">
+                <div>
+                  <span class="rn-section-tag"> STEP BY STEP </span>
+
+                  <h2>Cooking Instructions</h2>
+
+                  <p>Follow these steps to prepare your dish.</p>
+                </div>
+              </div>
+
+              <ol id="stepsList" class="steps-list"></ol>
+            </section>
+          </div>
+
+          <aside class="recipe-sidebar">
+            <section class="ingredients-card">
+              <div class="section-card-heading">
+                <div>
+                  <span class="rn-section-tag"> WHAT YOU NEED </span>
+
+                  <h2>Ingredients</h2>
+
+                  <p id="ingredientCount" class="ingredient-subtitle">
+                    Your shopping list
+                  </p>
+                </div>
+              </div>
+
+              <ul id="ingredientsList" class="ingredient-list"></ul>
+
+              <div class="ingredient-note">
+                Check each ingredient as you prepare everything you need.
+              </div>
+            </section>
+
+            <div class="recipe-tip">
+              <span class="rn-section-tag"> COOKING MADE SIMPLE </span>
+
+              <h3>Ready to get cooking?</h3>
+
+              <p>
+                Prepare all your ingredients before starting. Follow each
+                instruction carefully and enjoy the process.
+              </p>
+
+              <a href="categories.html#recipes"> Explore More Recipes → </a>
+            </div>
+          </aside>
+        </div>
+      </article>
+
+      <section class="detail-continue">
+        <div>
+          <span class="rn-section-tag"> DISCOVER MORE </span>
+
+          <h2>Looking for something else?</h2>
+
+          <p>
+            Explore more delicious dishes and discover your next favorite
+            recipe.
+          </p>
+        </div>
+
+        <a href="categories.html" class="rn-btn-primary"> Browse Recipes → </a>
+      </section>
+    </main>
+
+    <footer class="rn-footer">
+      <div class="rn-footer-inner">
+        <div class="rn-footer-top">
+          <div class="rn-footer-info">
+            <h3>Recipe<span>Nest</span></h3>
+
+            <p>
+              Discover delicious recipes, explore new flavors, and share your
+              love for cooking.
+            </p>
+          </div>
+
+          <div class="rn-footer-column">
+            <h4>Explore</h4>
+
+            <a href="index.html">Home</a>
+            <a href="categories.html">Categories</a>
+            <a href="categories.html#recipes">Recipes</a>
+            <a href="add-recipe.html">Add Recipe</a>
+          </div>
+
+          <div class="rn-footer-column">
+            <h4>Project</h4>
+
+            <a href="index.html#about">About Us</a>
+
+            <a
+              href="https://github.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub Repository
+            </a>
+          </div>
+        </div>
+
+        <div class="rn-footer-bottom">
+          <span> © 2026 RecipeNest. All rights reserved. </span>
+
+          <span>Made for food lovers.</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="site.js"></script>
+    <script src="pages.js"></script>
+  </body>
+</html>
