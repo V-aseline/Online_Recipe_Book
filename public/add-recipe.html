@@ -5,11 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#101B2D" />
     <title>RecipeNest | Add Recipe</title>
-
     <link rel="stylesheet" href="css/shared.css" />
     <link rel="stylesheet" href="css/add-recipe.css" />
   </head>
-
   <body class="rn-add" data-page="add-recipe">
     <header class="site-header">
       <div class="nav-shell">
@@ -41,7 +39,6 @@
             placeholder="Search recipes..."
             aria-label="Search recipes"
           />
-
           <button id="searchButton" type="submit">Search</button>
         </form>
       </div>
@@ -55,10 +52,8 @@
       </nav>
 
       <div class="add-heading">
-        <span class="rn-section-tag"> SHARE YOUR CREATION </span>
-
+        <span class="rn-section-tag">SHARE YOUR CREATION</span>
         <h1>Share Your <span>Recipe.</span></h1>
-
         <p>
           Every great dish has a story. Share yours with the RecipeNest
           community by filling out the recipe details below.
@@ -70,7 +65,6 @@
           <section class="form-card">
             <div class="form-card-heading">
               <span class="form-step">01</span>
-
               <div>
                 <h2>Recipe Information</h2>
                 <p>Tell us about the dish you want to share.</p>
@@ -83,7 +77,6 @@
                   Recipe Name
                   <span class="required">*</span>
                 </span>
-
                 <input
                   type="text"
                   id="recipeTitleInput"
@@ -94,20 +87,25 @@
                 />
               </label>
 
-              <label class="field">
-                <span>
+              <div class="field">
+                <label for="recipeCategoryInput">
                   Recipe Category
                   <span class="required">*</span>
-                </span>
-
+                </label>
                 <select id="recipeCategoryInput" name="category" required>
                   <option value="">Loading categories...</option>
                 </select>
-              </label>
+                <button
+                  type="button"
+                  id="openCategoryDialog"
+                  class="text-link add-category-trigger"
+                >
+                  + Add New Category
+                </button>
+              </div>
 
               <label class="field">
                 <span>Difficulty Level</span>
-
                 <select id="recipeDifficultyInput" name="difficulty">
                   <option value="">Not specified</option>
                   <option value="Easy">Easy</option>
@@ -121,7 +119,6 @@
                   Recipe Description
                   <span class="required">*</span>
                 </span>
-
                 <textarea
                   id="recipeDescriptionInput"
                   name="description"
@@ -136,7 +133,6 @@
           <section class="form-card">
             <div class="form-card-heading">
               <span class="form-step">02</span>
-
               <div>
                 <h2>Recipe Photos</h2>
                 <p>Add photographs to showcase your dish.</p>
@@ -146,23 +142,11 @@
             <div class="field-grid">
               <label class="field">
                 <span>Main Image URL</span>
-
                 <input
                   type="url"
                   id="recipeImageInput"
                   name="imageUrl"
                   placeholder="https://example.com/food.jpg"
-                />
-              </label>
-
-              <label class="field">
-                <span>Additional Image URL</span>
-
-                <input
-                  type="url"
-                  id="recipeImage2Input"
-                  name="imageUrl2"
-                  placeholder="https://example.com/food2.jpg"
                 />
               </label>
             </div>
@@ -171,7 +155,7 @@
               <div class="preview-box">
                 <img
                   id="primaryPreview"
-                  src="food1.png"
+                  src="images/food.png"
                   alt="Main recipe photo preview"
                 />
                 <span>Main Photo</span>
@@ -187,7 +171,6 @@
           <section class="form-card">
             <div class="form-card-heading">
               <span class="form-step">03</span>
-
               <div>
                 <h2>Cooking Details</h2>
                 <p>Help others prepare your recipe correctly.</p>
@@ -197,7 +180,6 @@
             <div class="field-grid three-fields">
               <label class="field">
                 <span>Servings</span>
-
                 <input
                   type="number"
                   id="recipeServingsInput"
@@ -210,7 +192,6 @@
 
               <label class="field">
                 <span>Preparation Time</span>
-
                 <input
                   type="number"
                   id="recipePrepInput"
@@ -222,7 +203,6 @@
 
               <label class="field">
                 <span>Cooking Time</span>
-
                 <input
                   type="number"
                   id="recipeCookInput"
@@ -237,7 +217,6 @@
           <section class="form-card">
             <div class="form-card-heading">
               <span class="form-step">04</span>
-
               <div>
                 <h2>Ingredients</h2>
                 <p>List everything needed to prepare your dish.</p>
@@ -250,7 +229,6 @@
                   Ingredient List
                   <span class="required">*</span>
                 </span>
-
                 <button
                   id="addIngredientRow"
                   class="text-link add-more"
@@ -269,7 +247,6 @@
                     aria-label="Ingredient 1"
                     required
                   />
-
                   <button
                     type="button"
                     class="remove-ingredient"
@@ -287,7 +264,6 @@
                     placeholder="e.g. 1/2 cup soy sauce"
                     aria-label="Ingredient 2"
                   />
-
                   <button
                     type="button"
                     class="remove-ingredient"
@@ -308,7 +284,6 @@
           <section class="form-card">
             <div class="form-card-heading">
               <span class="form-step">05</span>
-
               <div>
                 <h2>Cooking Instructions</h2>
                 <p>Explain how to prepare the dish step by step.</p>
@@ -320,7 +295,6 @@
                 Preparation Instructions
                 <span class="required">*</span>
               </span>
-
               <textarea
                 id="recipeInstructionsInput"
                 name="instructions"
@@ -328,7 +302,6 @@
                 placeholder="1. Prepare all the ingredients.&#10;2. Heat the cooking oil in a pan.&#10;3. Add the ingredients and cook.&#10;4. Serve and enjoy."
                 required
               ></textarea>
-
               <span class="helper-text">
                 Write each cooking step on a separate line.
               </span>
@@ -343,8 +316,7 @@
           ></div>
 
           <div class="form-actions">
-            <a href="categories.html" class="button button-outline"> Cancel </a>
-
+            <a href="categories.html" class="button button-outline">Cancel</a>
             <button
               id="submitRecipeButton"
               type="submit"
@@ -358,8 +330,7 @@
 
         <aside class="add-sidebar">
           <div class="add-side-photo">
-            <img src="kitchen.png" alt="P  reparing food in a kitchen" />
-
+            <img src="images/kitchen.png" alt="Preparing food in a kitchen" />
             <div class="side-photo-overlay">
               <span>RECIPENEST</span>
               <h3>Every recipe has a story.</h3>
@@ -367,12 +338,9 @@
           </div>
 
           <div class="add-guide">
-            <span class="rn-section-tag"> RECIPE SUBMISSION GUIDE </span>
-
+            <span class="rn-section-tag">RECIPE SUBMISSION GUIDE</span>
             <h3>Before You Submit</h3>
-
             <p>Make sure your recipe is clear and easy for others to follow.</p>
-
             <ul>
               <li>Use a clear and descriptive recipe name.</li>
               <li>Choose the correct recipe category.</li>
@@ -384,13 +352,11 @@
 
           <div class="add-side-note">
             <h3>Share the joy of cooking.</h3>
-
             <p>
               Your recipes can inspire others to discover new flavors and
               improve their cooking skills.
             </p>
-
-            <a href="categories.html"> Explore Recipes → </a>
+            <a href="categories.html">Explore Recipes →</a>
           </div>
         </aside>
       </div>
@@ -401,7 +367,6 @@
         <div class="rn-footer-top">
           <div class="rn-footer-info">
             <h3>Recipe<span>Nest</span></h3>
-
             <p>
               Discover delicious recipes, explore new flavors, and share your
               love for cooking.
@@ -410,7 +375,6 @@
 
           <div class="rn-footer-column">
             <h4>Explore</h4>
-
             <a href="index.html">Home</a>
             <a href="categories.html">Categories</a>
             <a href="categories.html#recipes">Recipes</a>
@@ -419,9 +383,7 @@
 
           <div class="rn-footer-column">
             <h4>Project</h4>
-
             <a href="index.html#about">About Us</a>
-
             <a
               href="https://github.com/"
               target="_blank"
@@ -433,12 +395,79 @@
         </div>
 
         <div class="rn-footer-bottom">
-          <span> © 2026 RecipeNest. All rights reserved. </span>
-
-          <span> Made for food lovers. </span>
+          <span>© 2026 RecipeNest. All rights reserved.</span>
+          <span>Made for food lovers.</span>
         </div>
       </div>
     </footer>
+
+    <dialog id="addCategoryDialog" class="category-dialog">
+      <form id="addCategoryForm" class="category-dialog-form">
+        <div class="category-dialog-heading">
+          <h2>Add New Category</h2>
+          <button
+            type="button"
+            id="closeCategoryDialog"
+            class="category-dialog-close"
+            aria-label="Close"
+          >
+            ×
+          </button>
+        </div>
+
+        <p class="category-dialog-description">
+          Create a new category for your recipe collection.
+        </p>
+
+        <label class="field">
+          <span>
+            Category Name
+            <span class="required">*</span>
+          </span>
+          <input
+            type="text"
+            id="newCategoryName"
+            maxlength="80"
+            placeholder="e.g. Filipino Desserts"
+            required
+          />
+        </label>
+
+        <label class="field">
+          <span>Category Description</span>
+          <textarea
+            id="newCategoryDescription"
+            rows="3"
+            maxlength="500"
+            placeholder="Briefly describe this category..."
+          ></textarea>
+        </label>
+
+        <p
+          id="categoryFormMessage"
+          class="category-form-message"
+          role="status"
+          aria-live="polite"
+        ></p>
+
+        <div class="category-dialog-actions">
+          <button
+            type="button"
+            id="cancelCategoryDialog"
+            class="category-cancel-button"
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            id="saveCategoryButton"
+            class="category-save-button"
+          >
+            Save Category
+          </button>
+        </div>
+      </form>
+    </dialog>
 
     <script src="js/add-recipe.js"></script>
   </body>

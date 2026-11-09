@@ -115,6 +115,8 @@ async function loadCategories() {
       categoryInput.appendChild(option);
     });
 
+    categoryInput.disabled = false;
+
     if (categories.length === 0) {
       placeholder.textContent = "No categories available";
       categoryInput.disabled = true;
@@ -354,3 +356,127 @@ async function initializeAddRecipePage() {
 }
 
 initializeAddRecipePage();
+
+const openCategoryDialog = document.getElementById("openCategoryDialog");
+const closeCategoryDialog = document.getElementById("closeCategoryDialog");
+const cancelCategoryDialog = document.getElementById("cancelCategoryDialog");
+const addCategoryDialog = document.getElementById("addCategoryDialog");
+const addCategoryForm = document.getElementById("addCategoryForm");
+const newCategoryName = document.getElementById("newCategoryName");
+const newCategoryDescription = document.getElementById(
+  "newCategoryDescription",
+);
+const categoryFormMessage = document.getElementById("categoryFormMessage");
+const saveCategoryButton = document.getElementById("saveCategoryButton");
+
+openCategoryDialog.addEventListener("click", () => {
+  categoryFormMessage.textContent = "";
+  addCategoryDialog.showModal();
+  newCategoryName.focus();
+});
+
+function closeNewCategoryDialog() {
+  addCategoryDialog.close();
+  addCategoryForm.reset();
+  categoryFormMessage.textContent = "";
+}
+
+closeCategoryDialog.addEventListener("click", closeNewCategoryDialog);
+cancelCategoryDialog.addEventListener("click", closeNewCategoryDialog);
+
+addCategoryDialog.addEventListener("click", (event) => {
+  if (event.target === addCategoryDialog && !saveCategoryButton.disabled) {
+    closeNewCategoryDialog();
+  }
+});
+
+addCategoryDialog.addEventListener("cancel", (event) => {
+  if (saveCategoryButton.disabled) {
+    event.preventDefault();
+  }
+});
+
+addCategoryDialog.addEventListener("close", () => {
+  addCategoryForm.reset();
+  categoryFormMessage.textContent = "";
+});
+
+addCategoryForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
+
+  const name = newCategoryName.value.trim();
+  const description = newCategoryDescription.value.trim();
+
+  if (!name) {
+    categoryFormMessage.textContent = "Please enter a category name.";
+    return;
+  }
+
+  const existingCategory = [...categoryInput.options].find(
+    (option) =>
+      option.value &&
+      option.textContent.trim().toLowerCase() === name.toLowerCase(),
+  );
+
+  if (existingCategory) {
+    categoryInput.disabled = false;
+    categoryInput.value = existingCategory.value;
+    showMessage("");
+    closeNewCategoryDialog();
+    return;
+  }
+
+  saveCategoryButton.disabled = true;
+  cancelCategoryDialog.disabled = true;
+  closeCategoryDialog.disabled = true;
+  saveCategoryButton.textContent = "Saving...";
+  categoryFormMessage.textContent = "";
+
+  try {
+    const response = await fetch("/api/categories", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        description,
+      }),
+    });
+
+    const result = await response.json();
+
+    if (!response.ok) {
+      throw new Error(result.message || "Unable to create category.");
+    }
+
+    if (!result._id) {
+      throw new Error("Category saved, but the server did not return its ID.");
+    }
+
+    const placeholder = categoryInput.querySelector('option[value=""]');
+
+    if (placeholder) {
+      placeholder.textContent = "Select a Category";
+    }
+
+    const option = document.createElement("option");
+    option.value = result._id;
+    option.textContent = result.name || name;
+
+    categoryInput.appendChild(option);
+    categoryInput.disabled = false;
+    categoryInput.value = result._id;
+
+    showMessage("");
+    closeNewCategoryDialog();
+  } catch (error) {
+    console.error(error);
+    categoryFormMessage.textContent = error.message;
+  } finally {
+    saveCategoryButton.disabled = false;
+    cancelCategoryDialog.disabled = false;
+    closeCategoryDialog.disabled = false;
+    saveCategoryButton.textContent = "Save Category";
+  }
+});
